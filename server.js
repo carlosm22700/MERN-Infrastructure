@@ -10,6 +10,7 @@ const app = express();
 
 //configure settings
 require('dotenv').config();
+require('./config/database') // this ensures that code from the database.js module runs
 
 //mount middleware
 app.use(express.json()); //creates req.body
