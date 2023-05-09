@@ -9,7 +9,7 @@ import NewOrderPage from "../NewOrderPage/NewOrderPage";
 import OrderHistoryPage from "../OrderHistoryPage/OrderHistoryPage";
 
 function App() {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
   return (
     <main className="App">
       {user ? (
