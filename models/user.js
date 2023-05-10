@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-
+//add bcrypt library
+const bcrypt = require('bcrypt')
 const SALT_ROUNDS = 6;
 
 const userSchema = new Schema ({
@@ -40,4 +41,4 @@ userSchema.pre('save', async function(next){
 
 });
 
-module.export = mongoose.model('User', userScehma);
+module.exports = mongoose.model('User', userSchema);
