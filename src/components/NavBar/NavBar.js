@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom"
 import * as userService from '../../utilities/users-service'
 
-export default function NavBar({ user }) {
+export default function NavBar({ user, setUser }) {
 
     function handleLogOut() {
-        userService.logOut(); // this removes the token from the local storage
-        setUser(user); //nullify user state
+        userService.logOut(); // this removes the token from the localStorage
+        setUser(null); //nullify user state
     }
 
     return (

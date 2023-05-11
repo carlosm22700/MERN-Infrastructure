@@ -15,7 +15,7 @@ function App() {
     <main className="App">
       {user ? (
         <>
-          <NavBar user = {user}/>
+          <NavBar user = {user} setUser={setUser}/>
           <Routes>
             {/* Route components here */}
             <Route path="/orders/new" element={<NewOrderPage />} />
@@ -23,7 +23,7 @@ function App() {
           </Routes>
         </>
       ) : (
-        <AuthPage setUser={setUser} />
+        <AuthPage path='/' setUser={setUser} />
       )}
     </main>
   );

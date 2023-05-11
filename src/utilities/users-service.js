@@ -1,5 +1,9 @@
 import * as userAPI from './users-api';
 
+export function logOut() {
+    localStorage.removeItem('token');
+}
+
 export async function signUp (userData) {
 // Delegate the network request code to the users-api.js API module
 //which will ultimately return a JSOn Web Token
