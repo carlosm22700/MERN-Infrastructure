@@ -41,3 +41,7 @@ export function getUser() {
     //if there's a token, return the user in the payload, oterwise return null
     return token ? JSON.parse(atob(token.split('.')[1])).user : null;
 };
+
+export async function checkToken() {
+    alert('clicked');
+}
