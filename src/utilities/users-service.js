@@ -6,7 +6,7 @@ export async function signUp (userData) {
 const token = await userAPI.signUp(userData);
 localStorage.setItem('token', token);
 //TODO: more user service related tasks to be handled here later
-return token;
+return getUser();
 };
 
 export function getToken() {

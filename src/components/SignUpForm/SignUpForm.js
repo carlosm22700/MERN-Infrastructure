@@ -35,7 +35,9 @@ export default class SignUpForm extends Component {
 
             //this will call signUp function that makes a AJAX request using formData
             const user = await signUp(formData);
-            console.log(user)
+            //set user state with the user obj returned by signUp
+            this.props.setUser(user);
+
         } catch {
             this.setState({error: 'Sign Up Failed - Try Again'});
         }
