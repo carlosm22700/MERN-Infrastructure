@@ -17,8 +17,11 @@ app.use(express.json()); //creates req.body
 app.use(morgan('dev'));
 app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')))
 //use middleware to help express discover the favicon file
-app.use(express.static(path.join(__dirname, 'build')))
 //use middleware to help express discover the index.html file
+app.use(express.static(path.join(__dirname, 'build')))
+//Middleware to verify token and assign user obj of payload req.user.
+//Be sure to mount before the routes
+app.use(require('./config/checkToken'))
 
 //mount routes
 //API routes go here

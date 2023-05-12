@@ -20,5 +20,5 @@ export function login(credentials) {
 }
 
 export function checkToken(credentials) {
-  return sendRequest(`${BASE_URL}/check-token`)
+  return sendRequest(`${BASE_URL}/check-token`);
 }

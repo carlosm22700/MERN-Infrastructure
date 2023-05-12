@@ -1,4 +1,4 @@
-import * as userAPI from './users-api';
+import * as usersAPI from './users-api';
 
 export function logOut() {
     localStorage.removeItem('token');
@@ -7,14 +7,14 @@ export function logOut() {
 export async function signUp (userData) {
 // Delegate the network request code to the users-api.js API module
 //which will ultimately return a JSOn Web Token
-const token = await userAPI.signUp(userData);
+const token = await usersAPI.signUp(userData);
 localStorage.setItem('token', token);
 //TODO: more user service related tasks to be handled here later
 return getUser();
 };
 
 export async function login(credentials) {
-    const token = await userAPI.login(credentials);
+    const token = await usersAPI.login(credentials);
     localStorage.setItem('token', token);
     return getUser();
 }
@@ -42,6 +42,12 @@ export function getUser() {
     return token ? JSON.parse(atob(token.split('.')[1])).user : null;
 };
 
-export async function checkToken() {
-    alert('clicked');
+export function checkToken() {
+  // Just so that you don't forget how to use.then
+  return (
+    usersAPI.checkToken()
+      // checkToken returns a string, but let's
+      // make it a Date object for more flexibility
+      .then((dateStr) => new Date(dateStr))
+  );
 }
